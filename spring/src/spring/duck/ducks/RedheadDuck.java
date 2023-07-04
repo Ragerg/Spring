@@ -1,7 +1,7 @@
-package designPattern.duck.client;
+package spring.duck.ducks;
 
-import designPattern.duck.flyBehavior.FlyWithWings;
-import designPattern.duck.quackBehavior.Quack;
+import spring.duck.flyBehavior.FlyWithWings;
+import spring.duck.quackBehavior.Quack;
 
 public class RedheadDuck extends Duck {
 	

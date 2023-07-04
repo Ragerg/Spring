@@ -1,4 +1,4 @@
-package designPattern.duck.quackBehavior;
+package spring.duck.quackBehavior;
 
 public class MuteQuack implements QuackBehavior {
 

@@ -1,14 +1,14 @@
-package designPattern.duck;
+package spring.duck;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import designPattern.duck.client.Duck;
+import spring.duck.ducks.Duck;
 
 public class Main {
 	public static void main(String[] args) {
 		
-		ApplicationContext context = new ClassPathXmlApplicationContext("designPattern/duck/setting.xml");
+		ApplicationContext context = new ClassPathXmlApplicationContext("spring/duck/setting.xml");
 		Duck duck = context.getBean("duck", Duck.class);
 		
 		duck.display();

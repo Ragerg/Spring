@@ -1,7 +1,7 @@
-package designPattern.duck.client;
+package spring.duck.ducks;
 
-import designPattern.duck.flyBehavior.FlyWithWings;
-import designPattern.duck.quackBehavior.MuteQuack;
+import spring.duck.flyBehavior.FlyWithWings;
+import spring.duck.quackBehavior.MuteQuack;
 
 public class DecoyDuck extends Duck {
 	

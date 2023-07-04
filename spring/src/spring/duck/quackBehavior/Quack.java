@@ -1,4 +1,4 @@
-package designPattern.duck.quackBehavior;
+package spring.duck.quackBehavior;
 
 public class Quack implements QuackBehavior {
 

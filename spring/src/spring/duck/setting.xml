@@ -8,9 +8,9 @@
       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
     
 	<!-- 오리들 -->
-<!--     <bean id="duck" class="designPattern.duck.client.MallardDuck" /> -->
-<!--     <bean id="duck" class="designPattern.duck.client.RedheadDuck" /> -->
-    <bean id="duck" class="designPattern.duck.client.RubberDuck" />
-<!--     <bean id="duck" class="designPattern.duck.client.DecoyDuck" /> -->
+<!--     <bean id="duck" class="spring.duck.ducks.MallardDuck" /> -->
+<!--     <bean id="duck" class="spring.duck.ducks.RedheadDuck" /> -->
+    <bean id="duck" class="spring.duck.ducks.RubberDuck" />
+<!--     <bean id="duck" class="spring.duck.ducks.DecoyDuck" /> -->
 
 </beans>

@@ -1,7 +1,7 @@
-package designPattern.duck.client;
+package spring.duck.ducks;
 
-import designPattern.duck.flyBehavior.FlyBehavior;
-import designPattern.duck.quackBehavior.QuackBehavior;
+import spring.duck.flyBehavior.FlyBehavior;
+import spring.duck.quackBehavior.QuackBehavior;
 
 public abstract class Duck {
 	

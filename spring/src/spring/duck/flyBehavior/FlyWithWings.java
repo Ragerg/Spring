@@ -1,4 +1,4 @@
-package designPattern.duck.flyBehavior;
+package spring.duck.flyBehavior;
 
 public class FlyWithWings implements FlyBehavior {
 

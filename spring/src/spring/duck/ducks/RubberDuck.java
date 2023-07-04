@@ -1,7 +1,7 @@
-package designPattern.duck.client;
+package spring.duck.ducks;
 
-import designPattern.duck.flyBehavior.FlyNoWay;
-import designPattern.duck.quackBehavior.Squeak;
+import spring.duck.flyBehavior.FlyNoWay;
+import spring.duck.quackBehavior.Squeak;
 
 public class RubberDuck extends Duck {
 	
