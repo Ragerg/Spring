@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xmlns:p="http://www.springframework.org/schema/p"
+   xmlns:context="http://www.springframework.org/schema/context"
+   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+      http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+
+<!-- 	<bean id="exam" class="spring.di.entity.AiswExam"> -->
+	<bean id="target" class="spring.di.entity.HightechExam" p:kor="10" p:eng="20" p:math="10" p:com="20"/>
+	<bean id="logAroundAdvice" class="spring.di.advice.LogAroundAdvice" />
+	<bean id="logbeforeAdvice" class="spring.di.advice.LogBeforeAdvice" />
+	<bean id="logAfterReturningAdvice" class="spring.di.advice.LogAfterReturningAdvice" />
+
+	<bean id="classicBeforeAdvisor" class="org.springframework.aop.support.NameMatchMethodPointcutAdvisor">
+	<property name="advice" ref="logbeforeAdvice" />
+	<property name="mappedName" value="avg" />
+	</bean>
+	
+	<bean id="classicAfterReturningAdvice" class="org.springframework.aop.support.NameMatchMethodPointcutAdvisor">
+	<property name="advice" ref="logAfterReturningAdvice" />
+	<property name="mappedName" value="avg" />
+	</bean>
+	
+	<bean id="exam" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="target" ref="target"/>
+		<property name="interceptorNames">
+		<list>
+<!-- 			<value>classicAroundAdvisor</value> -->
+			<value>classicBeforeAdvisor</value>
+			<value>classicAfterReturningAdvice</value>
+		</list>
+		</property>
+	</bean>
+	
+<!-- 	<bean id="dispalyExam" class="spring.di.ui.InlineDisplayExam"> -->
+	<bean id="displayExam" class="spring.di.ui.GridDisplayExam">
+		<property name="exam" ref="exam" />
+	</bean>
+</beans>
