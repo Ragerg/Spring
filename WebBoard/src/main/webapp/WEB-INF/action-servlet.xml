@@ -10,6 +10,7 @@
 
 
 	<bean id="/index" class="aisw.web.IndexController" />
+	<bean id="/boardList" class="aisw.web.BoardListController" />
 
 	<bean id="" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/WEB-INF/view/" />

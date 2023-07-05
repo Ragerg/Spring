@@ -18,12 +18,20 @@
 	    <artifactId>jstl</artifactId>
 	    <version>1.2</version>
 	</dependency>
-	<!-- https://mvnrepository.com/artifact/com.oracle/ojdbc -->
+	<!-- https://m
+vnrepository.com/artifact/com.oracle/ojdbc -->
 	<dependency>
 	    <groupId>com.oracle.database.jdbc</groupId>
 	    <artifactId>ojdbc8</artifactId>
 	    <version>19.8.0.0</version>
 	</dependency>
+	<dependency>
+    <groupId>javax.servlet</groupId>
+    <artifactId>javax.servlet-api</artifactId>
+    <version>4.0.0</version>
+    <scope>provided</scope>
+</dependency>
+	
   </dependencies>
   
   <build>
