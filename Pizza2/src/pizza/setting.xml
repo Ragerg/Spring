@@ -7,16 +7,14 @@
    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
     
-<!--     <bean id="pizzaStore" class="pizza.pizzaStore.NYPizzaStore" > -->
     <bean id="pizzaStore" class="pizza.pizzaStore.ChicagoPizzaStore">
-    	<constructor-arg name="pizza" ref="pizza" />
+<!--     <bean id="pizzaStore" class="pizza.pizzaStore.NYPizzaStore"> -->
+    	<constructor-arg name="pizza" ref="pizza"/>
     </bean>
-
-<!-- 	<bean id="pizza" class="pizza.pizza.ChicagoStyleCheesePizza" /> -->
-<!-- 	<bean id="pizza" class="pizza.pizza.ChicagoStylePepperoniPizza" /> -->
-<!-- 	<bean id="pizza" class="pizza.pizza.ChicagoStyleVeggiePizza" /> -->
-<!-- 	<bean id="pizza" class="pizza.pizza.NYStyleCheesePizza" /> -->
-	<bean id="pizza" class="pizza.pizza.NYStylePepperoniPizza" />
-<!-- 	<bean id="pizza" class="pizza.pizza.NYStyleVeggiePizza" /> -->
-	
+    
+<!--     <bean id="pizza" class="pizza.pizza.NYCheesePizza" /> -->
+<!--     <bean id="pizza" class="pizza.pizza.NYPepperoniPizza" /> -->
+<!--     <bean id="pizza" class="pizza.pizza.ChicagoCheesePizza" /> -->
+    <bean id="pizza" class="pizza.pizza.ChicagoPepperoniPizza" />
+    
 </beans>
