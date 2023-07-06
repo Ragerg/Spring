@@ -2,26 +2,32 @@ package aisw.web.biz;
 
 import java.util.Date;
 
+import org.springframework.stereotype.Service;
+
 public class BoardVO {
 
 	private int b_no;
 	private String title;
-	private String writer;
+	private String user_id;
 	private String content;
 	private Date reg_date;
+	private int hit;
+	private String image;
 
 	public BoardVO() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public BoardVO(int b_no, String title, String writer, String content, Date reg_date) {
+	public BoardVO(int b_no, String title, String user_id, String content, Date reg_date, int hit, String image) {
 		super();
 		this.b_no = b_no;
 		this.title = title;
-		this.writer = writer;
+		this.user_id = user_id;
 		this.content = content;
 		this.reg_date = reg_date;
+		this.hit = hit;
+		this.image = image;
 	}
 
 	public int getB_no() {
@@ -40,12 +46,12 @@ public class BoardVO {
 		this.title = title;
 	}
 
-	public String getWriter() {
-		return writer;
+	public String getUser_id() {
+		return user_id;
 	}
 
-	public void setWriter(String writer) {
-		this.writer = writer;
+	public void setUser_id(String user_id) {
+		this.user_id = user_id;
 	}
 
 	public String getContent() {
@@ -64,10 +70,26 @@ public class BoardVO {
 		this.reg_date = reg_date;
 	}
 
+	public int getHit() {
+		return hit;
+	}
+
+	public void setHit(int hit) {
+		this.hit = hit;
+	}
+
+	public String getImage() {
+		return image;
+	}
+
+	public void setImage(String image) {
+		this.image = image;
+	}
+
 	@Override
 	public String toString() {
-		return "BoardVO [b_no=" + b_no + ", title=" + title + ", writer=" + writer + ", content=" + content
-				+ ", reg_date=" + reg_date + "]";
+		return "BoardVO [b_no=" + b_no + ", title=" + title + ", user_id=" + user_id + ", content=" + content
+				+ ", reg_date=" + reg_date + ", hit=" + hit + ", image=" + image + "]";
 	}
 
 }

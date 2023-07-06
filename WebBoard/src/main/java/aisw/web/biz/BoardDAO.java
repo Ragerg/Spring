@@ -1,5 +1,7 @@
 package aisw.web.biz;
 
+import java.beans.BeanProperty;
+import java.lang.annotation.Annotation;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -10,6 +12,8 @@ import javax.sql.DataSource;
 import javax.websocket.server.ServerEndpoint;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
@@ -24,67 +28,51 @@ public class BoardDAO {
     
     @Autowired
     private DataSource dataSource;
-//    
-//    public void setDataSource(DataSource dataSource) {
-//        this.dataSource = dataSource;
-//    }
 
     // 문의글 전체 보기
     public List<BoardVO> getBoardList() {
-        List<BoardVO> boardList = new ArrayList<BoardVO>();
         StringBuilder sql = new StringBuilder();
-
+        
         sql.append("SELECT *");
-        sql.append("  FROM BANK_BOARD");
+        sql.append("  FROM NEWS_BOARD");
         sql.append(" ORDER BY B_NO DESC");
-        sql.append("  ");
-        try {
-//            conn = JDBCUtil.getConnection();
-        	conn = dataSource.getConnection();
-            stmt = conn.prepareStatement(sql.toString());
-
-            rs = stmt.executeQuery();
-
-            while (rs.next()) {
-                BoardVO board = new BoardVO();
-                board.setB_no(rs.getInt("B_NO"));
-                board.setTitle(rs.getString("TITLE"));
-                board.setWriter(rs.getString("USER_ID"));
-                board.setReg_date(rs.getDate("REG_DATE"));
-                boardList.add(board);
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        
+        // spring JDBC
+        JdbcTemplate template = new JdbcTemplate();
+        template.setDataSource(dataSource);
+        List<BoardVO> boardList = template.query(sql.toString(), new BeanPropertyRowMapper<>(BoardVO.class));
         return boardList;
     }
 
-//    // 문의글 하나보기
-//    public BoardVO getBoard(int b_no) {
-//        BoardVO board = null;
-//        StringBuilder sql = new StringBuilder();
-//
-//        sql.append("SELECT * FROM BANK_BOARD WHERE B_NO = ?");
-//        try {
-//            conn = JDBCUtil.getConnection();
+    // 문의글 하나보기
+    public BoardVO getBoard(int b_no) {
+        StringBuilder sql = new StringBuilder();
+
+        sql.append("SELECT * FROM NEWS_BOARD WHERE B_NO = ?");
+        
+        // spring JDBC
+        JdbcTemplate template = new JdbcTemplate();
+        template.setDataSource(dataSource);
+        BoardVO board = template.queryForObject(sql.toString(), new BeanPropertyRowMapper<>(BoardVO.class), b_no);
+        
+        return board;
+    }
     
-//            conn = dataSource.getConnection();	
-//            stmt = conn.prepareStatement(sql.toString());
-//            stmt.setInt(1, b_no);
-//
-//            rs = stmt.executeQuery();
-//
-//            if (rs.next()) {
-//                board = new BoardVO();
-//                board.setB_no(rs.getInt("B_NO"));
-//                board.setTitle(rs.getString("TITLE"));
-//                board.setContent(rs.getString("CONTENT"));
-//                board.setReg_date(rs.getDate("REG_DATE"));
-//            }
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-//        return board;
-//    }
+   // 글 등록
+    public int insertBoard(BoardVO board) {
+        int result = 0;
+        StringBuilder sql = new StringBuilder();
+        sql.append("INSERT INTO NEWS_BOARD (");
+        sql.append("       TITLE,");
+        sql.append("       CONTENT,");
+        sql.append("       IMAGE");
+        sql.append(") VALUES (?, ?, ?)");
+        
+     // spring JDBC
+        JdbcTemplate template = new JdbcTemplate();
+        template.setDataSource(dataSource);
+        result = template.update(sql.toString(), board.getTitle(), board.getContent(), board.getImage());
+        return result;
+    }
 
 }

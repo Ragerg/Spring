@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@page import="java.util.ArrayList"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>   
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
@@ -7,18 +6,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
-<title>°øÁö°Ô½ÃÆÇ</title>
+<meta charset="utf-8">
+<title>ê³µì§€ê²Œì‹œíŒ</title>
 </head>
 <body>
 	<section class="section" id="board">
     <div class="container">
-    
-        <h1 class="my-3 text-primary">°øÁö°Ô½ÃÆÇ</h1>
+        <h1 class="my-3 text-primary">ê³µì§€ê²Œì‹œíŒ</h1>
         <table>
         <thead class="table-dark">
             <tr>
-                <th scope="col" style="width: 15%;" >±Û¹øÈ£</th>
+                <th scope="col" style="width: 15%;" >ê¸€ë²ˆí˜¸</th>
                 <th scope="col" class="title" style="width: 55%;overflow: hidden">Title</th>
                 <th scope="col" style="width: 15%;">Writer</th>
                 <th scope="col" class="date" style="width: 15%;">Date</th>
@@ -26,17 +24,20 @@
         </thead>
         <tbody>
             <c:forEach var="board" items="${boardList}">
-			  <tr>
+			  <tr onclick="location.href='board?b_no=${ board.b_no }'">
 			    <td>${board.b_no}</td>
 			    <td>${board.title}</td>
-			    <td>${board.writer}</td>
-			    <td>${board.reg_date}</td>
+			    <td>${board.user_id}</td>
+			    <td><fmt:formatDate value="${ board.reg_date }" pattern="yyyy-MM-dd" type="date"/></td>
 			  </tr>
 			</c:forEach>
 
         </tbody>
         </table>
     </div>
+    <a href="insertBoardPage">
+    <input type="button" value="ê¸€ì“°ê¸°" class="btn btn-primary mt-3">
+    </a>
     </section>
 </body>
 </html>
