@@ -25,6 +25,12 @@ vnrepository.com/artifact/com.oracle/ojdbc -->
 	    <artifactId>ojdbc8</artifactId>
 	    <version>19.8.0.0</version>
 	</dependency>
+	<!-- https://mvnrepository.com/artifact/org.springframework/spring-jdbc -->
+	<dependency>
+	    <groupId>org.springframework</groupId>
+	    <artifactId>spring-jdbc</artifactId>
+	    <version>5.2.9.RELEASE</version>
+	</dependency>
 	<dependency>
     <groupId>javax.servlet</groupId>
     <artifactId>javax.servlet-api</artifactId>
