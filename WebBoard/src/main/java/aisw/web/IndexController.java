@@ -12,9 +12,9 @@ public class IndexController implements Controller {
 	@Override
 	public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response) throws Exception {
 
-		
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("data", "Hello~~~");
+
 		mv.setViewName("index");
 		
 		return mv;
