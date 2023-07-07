@@ -23,8 +23,10 @@
                 <textArea class="form-control" id="content" name="content" rows="10"></textArea>
               </div>
             </div>
-            <input type="submit" value="등록하기" class="btn btn-primary mt-3">
-            <a class="btn btn-secondary mt-3" href="boardList"><button>목록으로</button></a>
+            <input type="submit" value="등록하기" class="btn btn-primary mt-3"><br>
+            <a href="boardList">
+            <input type="button" value="목록으로" class="btn btn-secondary mt-3" />
+            </a>
         </form>
         </div>
       </section>

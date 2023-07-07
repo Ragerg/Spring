@@ -44,7 +44,7 @@ public class BoardDAO {
         return boardList;
     }
 
-    // 문의글 하나보기
+    // 글 하나보기
     public BoardVO getBoard(int b_no) {
         StringBuilder sql = new StringBuilder();
 
@@ -56,6 +56,14 @@ public class BoardDAO {
         BoardVO board = template.queryForObject(sql.toString(), new BeanPropertyRowMapper<>(BoardVO.class), b_no);
         
         return board;
+    }
+    
+    // 조회수 증가
+    public void increaseHitCount(int b_no) {
+        String sql = "UPDATE NEWS_BOARD SET HIT = HIT + 1 WHERE B_NO = ?";
+
+        JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
+        jdbcTemplate.update(sql, b_no);
     }
     
    // 글 등록
@@ -73,6 +81,35 @@ public class BoardDAO {
         template.setDataSource(dataSource);
         result = template.update(sql.toString(), board.getTitle(), board.getContent(), board.getImage());
         return result;
+    }
+    
+    // 글 삭제
+    public int deleteBoard(int b_no) {
+    	int result = 0;
+    	StringBuilder sql = new StringBuilder();
+    	sql.append(" DELETE FROM NEWS_BOARD");
+    	sql.append(" WHERE B_NO = ?");
+    	
+    	// spring JDBC
+    	JdbcTemplate template = new JdbcTemplate();
+    	template.setDataSource(dataSource);
+    	result = template.update(sql.toString(), b_no);
+    	return result;
+    }
+    
+    // 글 수정
+    public int updateBoard(BoardVO board) {
+    	int result = 0;
+    	StringBuilder sql = new StringBuilder();
+    	sql.append(" UPDATE NEWS_BOARD");
+    	sql.append("    SET TITLE = ?, CONTENT = ?");
+    	sql.append(" WHERE B_NO = ?");
+    	
+    	// spring JDBC
+    	JdbcTemplate template = new JdbcTemplate();
+    	template.setDataSource(dataSource);
+    	result = template.update(sql.toString(), board.getTitle(), board.getContent(), board.getB_no());
+    	return result;
     }
 
 }

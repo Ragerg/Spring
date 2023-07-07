@@ -18,8 +18,7 @@
 	    <artifactId>jstl</artifactId>
 	    <version>1.2</version>
 	</dependency>
-	<!-- https://m
-vnrepository.com/artifact/com.oracle/ojdbc -->
+	<!-- https://mvnrepository.com/artifact/com.oracle/ojdbc -->
 	<dependency>
 	    <groupId>com.oracle.database.jdbc</groupId>
 	    <artifactId>ojdbc8</artifactId>
@@ -31,13 +30,19 @@ vnrepository.com/artifact/com.oracle/ojdbc -->
 	    <artifactId>spring-jdbc</artifactId>
 	    <version>5.2.9.RELEASE</version>
 	</dependency>
+	<!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
+	<dependency>
+        <groupId>com.fasterxml.jackson.core</groupId>
+        <artifactId>jackson-databind</artifactId>
+        <version>2.12.5</version>
+    </dependency>
+	<!-- 노트북용 -->
 	<dependency>
     <groupId>javax.servlet</groupId>
     <artifactId>javax.servlet-api</artifactId>
     <version>4.0.0</version>
     <scope>provided</scope>
 </dependency>
-	
   </dependencies>
   
   <build>

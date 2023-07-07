@@ -20,6 +20,7 @@
             <div class="row">
                 <div class="col-md-6">
                     <input type="text" class="form-control form-control-plaintext " name="user_id" required="" value="${ board.user_id }" readonly>
+<%--                     <input type="text" class="form-control form-control-plaintext " name="user_id" required="" value="${ board.hit }" readonly> --%>
                 </div>
                 <div class="col-md-6">
                     <input type="text" class="form-control form-control-plaintext " name="reg_date" required="" value="${ board.reg_date }" readonly>
@@ -31,6 +32,8 @@
                 </div>
             </div>
         </form>
+                <a class="btn btn-secondary mt-3" href="updateBoardPage?b_no=${ board.b_no }"><button>수정하기</button></a>                   
+                <a class="btn btn-secondary mt-3" href="deleteBoard?b_no=${ board.b_no }"><button>삭제하기</button></a><br>                   
                 <a class="btn btn-secondary mt-3" href="boardList"><button>목록으로</button></a>                   
     </div>
     </div>

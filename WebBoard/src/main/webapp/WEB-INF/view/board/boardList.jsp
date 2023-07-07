@@ -19,6 +19,7 @@
                 <th scope="col" style="width: 15%;" >글번호</th>
                 <th scope="col" class="title" style="width: 55%;overflow: hidden">Title</th>
                 <th scope="col" style="width: 15%;">Writer</th>
+<!--                 <th scope="col" style="width: 15%;">Hit</th> -->
                 <th scope="col" class="date" style="width: 15%;">Date</th>
             </tr>
         </thead>
@@ -28,6 +29,7 @@
 			    <td>${board.b_no}</td>
 			    <td>${board.title}</td>
 			    <td>${board.user_id}</td>
+<%-- 			    <td>${board.hit}</td> --%>
 			    <td><fmt:formatDate value="${ board.reg_date }" pattern="yyyy-MM-dd" type="date"/></td>
 			  </tr>
 			</c:forEach>
