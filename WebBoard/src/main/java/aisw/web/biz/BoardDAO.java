@@ -29,7 +29,7 @@ public class BoardDAO {
     @Autowired
     private DataSource dataSource;
 
-    // 문의글 전체 보기
+    // 臾몄쓽湲� �쟾泥� 蹂닿린
     public List<BoardVO> getBoardList() {
         StringBuilder sql = new StringBuilder();
         
@@ -44,7 +44,7 @@ public class BoardDAO {
         return boardList;
     }
 
-    // 글 하나보기
+    // 湲� �븯�굹蹂닿린
     public BoardVO getBoard(int b_no) {
         StringBuilder sql = new StringBuilder();
 
@@ -58,7 +58,7 @@ public class BoardDAO {
         return board;
     }
     
-    // 조회수 증가
+    // 議고쉶�닔 利앷�
     public void increaseHitCount(int b_no) {
         String sql = "UPDATE NEWS_BOARD SET HIT = HIT + 1 WHERE B_NO = ?";
 
@@ -66,7 +66,7 @@ public class BoardDAO {
         jdbcTemplate.update(sql, b_no);
     }
     
-   // 글 등록
+   // 湲� �벑濡�
     public int insertBoard(BoardVO board) {
         int result = 0;
         StringBuilder sql = new StringBuilder();
@@ -83,7 +83,7 @@ public class BoardDAO {
         return result;
     }
     
-    // 글 삭제
+    // 湲� �궘�젣
     public int deleteBoard(int b_no) {
     	int result = 0;
     	StringBuilder sql = new StringBuilder();
@@ -97,7 +97,7 @@ public class BoardDAO {
     	return result;
     }
     
-    // 글 수정
+    // 湲� �닔�젙
     public int updateBoard(BoardVO board) {
     	int result = 0;
     	StringBuilder sql = new StringBuilder();
