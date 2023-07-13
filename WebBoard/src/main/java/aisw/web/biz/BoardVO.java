@@ -13,7 +13,10 @@ public class BoardVO {
 	private Date reg_date;
 	private int hit;
 	private String image;
-
+	private int seq;
+	private String writer;
+	private Date regDate;
+	
 	public BoardVO() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -90,6 +93,30 @@ public class BoardVO {
 	public String toString() {
 		return "BoardVO [b_no=" + b_no + ", title=" + title + ", user_id=" + user_id + ", content=" + content
 				+ ", reg_date=" + reg_date + ", hit=" + hit + ", image=" + image + "]";
+	}
+
+	public int getSeq() {
+		return seq;
+	}
+
+	public void setSeq(int seq) {
+		this.seq = seq;
+	}
+
+	public String getWriter() {
+		return writer;
+	}
+
+	public void setWriter(String writer) {
+		this.writer = writer;
+	}
+
+	public Date getRegDate() {
+		return regDate;
+	}
+
+	public void setRegDate(Date regDate) {
+		this.regDate = regDate;
 	}
 
 }

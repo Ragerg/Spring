@@ -23,8 +23,8 @@ public class NewsListController {
 	public String newsList(Model model) throws JsonMappingException, JsonProcessingException {
 		
 		List<BoardVO> newsList = restDAO.getNewsList();
-		model.addAttribute("newsList", newsList);
-		return "board/boardList";
+		model.addAttribute("boardList", newsList);
+		return "news/newsList";
 	}
 	
 }

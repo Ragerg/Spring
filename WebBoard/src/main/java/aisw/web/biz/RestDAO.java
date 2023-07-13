@@ -19,7 +19,7 @@ public class RestDAO {
     public List<BoardVO> getNewsList() throws JsonMappingException, JsonProcessingException {
         
     	// 뉴스 정보 받아로 url 입력
-        String url = "http://localhost:8080/api/news";
+        String url = "http://172.31.9.168:8080/api/news";
         
         // RestTemplate 으로 JSON 결과값 받아오기
         RestTemplate restTemplate = new RestTemplate();
@@ -38,6 +38,7 @@ public class RestDAO {
         List<BoardVO> newsList = null;
         ObjectMapper mapper = new ObjectMapper();
         newsList = mapper.readValue(responseBody, new TypeReference<List<BoardVO>>() {});
+        System.out.println("뉴스0 : " + newsList.get(0));
         
     	return newsList;
     }
